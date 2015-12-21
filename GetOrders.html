@@ -6,11 +6,11 @@
 <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 
 <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+<source src="jsGetOrders.js"></script>
 <body>
 
 <div ng-app="myApp" ng-controller="customersCtrl">
-    <h1>Количество  заказов - {{length}} шт. {{names.length}} </h1>
-
+    <h3>Количество  заказов - {{names.length}} шт.</h3>
     <div class="btn-group">
         <button class="btn btn-default" ng-click="showTable()">Таблица</button>
         <button class="btn btn-default" ng-click="showList()">Лист</button>
@@ -21,24 +21,24 @@
 
 </div>
 
+
 <script>
     var app = angular.module('myApp', []);
     app.controller('customersCtrl', function ($scope, $http) {
-        $http.get("http://lewd.1gb.ua/api/tests/GetJsonOrders")
-        .then(function (response) {
-            $scope.names = response.data.records;
-            $scope.tableView = "tableOrder.html";
-            $scope.listView = "listOrder.html";
-
+    $http.get("http://lewd.1gb.ua/api/tests/GetJsonOrders")
+    .then(function (response) {
+        $scope.names = response.data.records;
+        $scope.tableView = "tmpl/tableOrder.html";
+        $scope.listView = "tmpl/listOrder.html";
+        $scope.url = $scope.tableView;
+        $scope.showList = function () {
+            $scope.url = $scope.listView;
+        }
+        $scope.showTable = function () {
             $scope.url = $scope.tableView;
-            $scope.showList = function () {
-                $scope.url = $scope.listView;
-            }
-            $scope.showTable = function () {
-                $scope.url = $scope.tableView;
-            }
-        });
+        }
     });
+});
 </script>
 
 </body>
