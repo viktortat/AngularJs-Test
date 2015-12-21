@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html>
+<html lang="ru-Ru">
+<meta charset="UTF-8">
 <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
@@ -24,21 +25,19 @@
     var app = angular.module('myApp', []);
     app.controller('customersCtrl', function ($scope, $http) {
         $http.get("http://lewd.1gb.ua/api/tests/GetJsonOrders")
-                .then(function (response) {
-                    $scope.names = response.data.records;
-                    $scope.tableView = "tableOrder.html";
-                    $scope.listView = "listOrder.html";
+        .then(function (response) {
+            $scope.names = response.data.records;
+            $scope.tableView = "tableOrder.html";
+            $scope.listView = "listOrder.html";
 
-                    $scope.url = $scope.tableView;
-                    $scope.showList = function () {
-                        $scope.url = $scope.listView;
-                    }
-                    $scope.showTable = function () {
-                        $scope.url = $scope.tableView;
-                    }
-
-                    //console.log($scope.names);
-                });
+            $scope.url = $scope.tableView;
+            $scope.showList = function () {
+                $scope.url = $scope.listView;
+            }
+            $scope.showTable = function () {
+                $scope.url = $scope.tableView;
+            }
+        });
     });
 </script>
 
