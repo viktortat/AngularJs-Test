@@ -1,0 +1,45 @@
+<div class="table-responsive">
+    <table class="table table-hover table-striped">
+        <thead>
+        <tr>
+            <th>#</th>
+            <th>OrderID</th>
+            <th>EmployeeID</th>
+            <th>OrderID</th>
+            <th>Freight</th>
+            <th>CustomerID</th>
+            <th>ShipName</th>
+            <th>ShipAddress</th>
+            <th>ShipCity</th>
+            <th>ShipRegion</th>
+            <th>ShipPostalCode</th>
+            <th>ShipCountry</th>
+            <th>OrderDate</th>
+            <th>RequiredDate</th>
+            <th>ShippedDate</th>
+            <th>ShipVia</th>
+        </tr>
+        </thead>
+        <tbody style="height: 10px !important; overflow: scroll;">
+        <tr ng-repeat="o in names">
+            <td>{{$index+1}}</td>
+            <td>{{o.OrderID}}</td>
+            <td>{{o.EmployeeID}}</td>
+            <td>{{o.OrderID}}</td>
+            <td>{{o.Freight}}</td>
+            <td>{{o.CustomerID}}</td>
+            <td>{{o.ShipName}}</td>
+            <td>{{o.ShipAddress}}</td>
+            <td>{{o.ShipCity}}</td>
+            <td>{{o.ShipRegion}}</td>
+            <td>{{o.ShipPostalCode}}</td>
+            <td>{{o.ShipCountry}}</td>
+            <td>{{o.OrderDate}}</td>
+            <td>{{o.RequiredDate}}</td>
+            <td>{{o.ShippedDate}}</td>
+            <td>{{o.ShipVia}}</td>
+
+        </tr>
+        </tbody>
+    </table>
+</div>
